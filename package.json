@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node app.js"
+    "start": "node ./bin/www"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
@@ -12,7 +12,8 @@
     "http-errors": "~1.6.3",
     "mongoose": "^5.10.6",
     "morgan": "~1.9.1",
-    "node-fetch": "2.6.1",
-    "pug": "2.0.0-beta11"
+    "node-fetch": "^2.6.1",
+    "pug": "2.0.0-beta11",
+    "puppeteer": "^5.3.1"
   }
 }
