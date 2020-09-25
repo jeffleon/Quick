@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 
 const PeajeSchema = new Schema({
     Nombre: String,
-    Coordenadas: [String],
+    Coordenadas: {lat: Number, lon: Number},
     Operador:String,
 //    Sentido: Number,
     NuevaTarifa: mongoose.SchemaTypes.Mixed,
@@ -22,9 +22,7 @@ PeajeSchema.statics.eliminar = function(id) {
 }
 
 PeajeSchema.statics.buscarxid = async function(id, cb) {
-    console.log("i enter tu the function", id)
     var peaje = await this.findById(id, cb)
-    console.log(peaje);
     return peaje
 }
 PeajeSchema.statics.peajes = async function(cb) {

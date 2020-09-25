@@ -35,9 +35,9 @@ async function fetchdata() {
                 index++;
                 LatLong = element.innerHTML.toString().split("?");
                 if (LatLong.length > 1) {
-                    wrapper[labels[index]] = [] 
-                    wrapper[labels[index]].push(LatLong[1].match(/lon=-?\d{1,}.\d{1,}/)[0]);
-                    wrapper[labels[index]].push(LatLong[1].match(/lat=-?\d{1,}.\d{1,}/)[0]);
+                    var longitud = LatLong[1].match(/lon=-?\d{1,}.\d{1,}/)[0].replace("lon=", "")
+                    var latitud = LatLong[1].match(/lat=-?\d{1,}.\d{1,}/)[0].replace("lat=", "")
+                    wrapper[labels[index]] = {"lat": parseFloat(latitud), "lon": parseFloat(longitud)}
                 }
                 else
                     wrapper[labels[index]] = null;
