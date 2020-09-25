@@ -13,7 +13,7 @@ exports.create_post = async (req, res) =>{
             var peaje_nuevo = new Peaje()
             peaje_nuevo.Nombre = element["Nombre/Localizacion"]
             peaje_nuevo.Coordenadas = element["Coordenadas"]
-            peaje_nuevo.Operaddor = element["Operador"]
+            peaje_nuevo.Operador = element["Operador"]
             peaje_nuevo.id = element["id"]
             peaje_nuevo.NuevaTarifa = element["Nueva Tarifa"]
             Peaje.crear(peaje_nuevo);
