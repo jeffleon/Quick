@@ -5,11 +5,11 @@ const PeajeSchema = new Schema({
     Nombre: String,
     Coordenadas: {lat: Number, lon: Number},
     Operador:String,
-//    Sentido: Number,
+    Sentido: { type: String, default: "" },
     NuevaTarifa: mongoose.SchemaTypes.Mixed,
     Fecha_de_modificacion: { type: Date, default: Date.now },
-//    Municipio: String,
-//    Departamento: String,
+    Municipio: { type: String, default: "" },
+    Departamento: { type: String, default: "" },
     id: Number
 });
 
@@ -30,8 +30,10 @@ PeajeSchema.statics.peajes = async function(cb) {
     return peajes
 }
 
-PeajeSchema.statics.actualizar = function(id, actualizar){
-    this.findByIdAndUpdate(id, actualizar)
+PeajeSchema.statics.actualizar = async function(id, actualizar){
+    var peaje = await this.findByIdAndUpdate(id, actualizar)
+    console.log("esta es la respuesta del modelo", peaje)
+    return peaje
 }  
 
 module.exports = mongoose.model('Peaje', PeajeSchema)

@@ -19,13 +19,10 @@ async function fetchdata() {
         var results2 = []
         var wrapper = {}
         var index = 0;
-        var id = 0;
         datostabla.forEach((element, ind) => {
-            const labels = ["Nombre/Localizacion", "Coordenadas", "Operador", "Editor Creador", "Fecha de Actualizar", "Nueva Tarifa", "Precio Actualizado por", "Peaje Actualizado al Waze Toll por", "Fecha Actualizacion Waze Toll","id"];
+            const labels = ["Nombre/Localizacion", "Coordenadas", "Operador", "Editor Creador", "Fecha de Actualizar", "Nueva Tarifa", "Precio Actualizado por", "Peaje Actualizado al Waze Toll por", "Fecha Actualizacion Waze Toll"];
             if (element.innerHTML.toString().search("lat") !== -1 && ind > 0)
             {
-                wrapper[labels[index]] = id;
-                id++;
                 index = 0;
                 results2.push(wrapper);
                 wrapper = {}

@@ -9,5 +9,5 @@ router.get('/', function(req, res, next) {
 
 router.get('/peajes', ControllerPeajes.peajes_get);
 router.post('/peajes', ControllerPeajes.create_post);
-router.put('/peajes/:id')
+router.patch('/peajes/:id', ControllerPeajes.actualizar);
 module.exports = router;

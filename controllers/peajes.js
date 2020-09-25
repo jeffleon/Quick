@@ -3,7 +3,7 @@ var Peaje = require('../models/peajes')
 
 exports.peajes_get = async(req, res, error)=>{
     var peajes = {peajes: await Peaje.peajes()}
-    res.send({data: peajes});
+    res.status(200).send({data: peajes});
 }
 
 exports.create_post = async (req, res) =>{
@@ -18,6 +18,17 @@ exports.create_post = async (req, res) =>{
             peaje_nuevo.NuevaTarifa = element["Nueva Tarifa"]
             Peaje.crear(peaje_nuevo);
         });
-        res.redirect('/peajes');
+        res.status(301).redirect('/peajes');
     }
+}
+
+exports.actualizar = async (req, res) =>{
+    try {
+        var peajeActualizado = await Peaje.actualizar(req.params.id, req.body)
+        console.log(peajeActualizado);
+        res.status(200).send(peajeActualizado)
+    }catch(error){
+        res.status(500).send(error)
+        console.log(error)
+  }
 }
