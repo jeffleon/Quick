@@ -1,13 +1,15 @@
 var express = require('express');
 var router = express.Router();
-var ControllerPeajes = require('../controllers/peajes');
-const { route } = require('./users');
+var ControllerTolls = require('../controllers/tolls');
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
 
-router.get('/peajes', ControllerPeajes.peajes_get);
-router.post('/peajes', ControllerPeajes.create_post);
-router.patch('/peajes/:id', ControllerPeajes.actualizar);
+router.get('/tolls', ControllerTolls.get_tolls);
+router.post('/tolls/scrapper', ControllerTolls.create_post_scrapper);
+router.post('/tolls', ControllerTolls.create_post);
+router.get('/tolls/:id', ControllerTolls.get_toll_id);
+router.patch('/tolls/:id', ControllerTolls.update);
+router.delete('/tolls/:id', ControllerTolls.delete);
 module.exports = router;

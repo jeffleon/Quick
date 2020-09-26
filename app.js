@@ -30,6 +30,7 @@ app.use(function(req, res, next) {
 //////mongoose Configuration/////////////////////
 var mongoose = require('mongoose')
 var mongoDB = process.env.DB || 'mongodb://localhost:27017/Peajes'
+//var mongoDB = "mongodb+srv://quick:quick@cluster0.rq3kf.mongodb.net/sample_airbnb?retryWrites=true&w=majority"
 mongoose.connect(mongoDB, {useNewUrlParser: true,  useUnifiedTopology: true, useCreateIndex: true})
 mongoose.Promise = global.Promise
 var db = mongoose.connection

@@ -34,7 +34,7 @@ async function fetchdata() {
                 if (LatLong.length > 1) {
                     var longitud = LatLong[1].match(/lon=-?\d{1,}.\d{1,}/)[0].replace("lon=", "")
                     var latitud = LatLong[1].match(/lat=-?\d{1,}.\d{1,}/)[0].replace("lat=", "")
-                    wrapper[labels[index]] = {"lat": parseFloat(latitud), "lon": parseFloat(longitud)}
+                    wrapper[labels[index]] = {"lat": parseFloat(latitud), "lng": parseFloat(longitud)}
                 }
                 else
                     wrapper[labels[index]] = null;
