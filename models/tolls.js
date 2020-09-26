@@ -31,7 +31,7 @@ TollSchema.statics.tolls = async function(cb) {
 }
 
 TollSchema.statics.update_toll = async function(id, actualizar, cb){
-    var toll = await this.findByIdAndUpdate(id, actualizar,(cb)=>{console.log("dont find the toll")});
+    var toll = await this.findByIdAndUpdate(id, actualizar);
     return toll;
 }  
 

@@ -64,8 +64,8 @@ exports.delete = async(req, res) => {
 }
 exports.update = async (req, res) =>{
     try {
-        var toll = Toll.find_toll_id(req.params.id)
-        if(typeof(toll) !== Object) { 
+        var toll = await Toll.find_toll_id(req.params.id)
+        if(!toll) { 
             res.status(404).send(`we can find the toll with id ${req.params.id}`) 
         }else{
             var updatedtoll = await Toll.update_toll(req.params.id, req.body);
