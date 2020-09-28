@@ -3,11 +3,30 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-
+var swaggerUI = require('swagger-ui-express');
+var swaggerJSDocs = require('swagger-jsdoc');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
 var app = express();
+//swagger
+const swaggerOptions = {
+  swaggerDefinition:{
+    info:{
+      title: "Cost Trip API of Colombia",
+      description: "the main point of this API its find all costs asociated with a especific route between to especific points",
+      contact:{
+        name: "FullDevs"
+      },
+      servers: ["https://api-tolls.herokuapp.com/tolls"]
+    }
+  },
+  apis: ["./routes/*.js"]
+}
+    
+const swaggerDocs = swaggerJSDocs(swaggerOptions);
+app.use('/api-docs', swaggerUI.serve, swaggerUI.setup(swaggerDocs))
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -28,7 +47,8 @@ app.use(function(req, res, next) {
 });
 
 //////mongoose Configuration/////////////////////
-var mongoose = require('mongoose')
+var mongoose = require('mongoose');
+const swaggerJSDoc = require('swagger-jsdoc');
 var mongoDB = process.env.DB || 'mongodb://localhost:27017/Peajes'
 //var mongoDB = "mongodb+srv://quick:quick@cluster0.rq3kf.mongodb.net/sample_airbnb?retryWrites=true&w=majority"
 mongoose.connect(mongoDB, {useNewUrlParser: true,  useUnifiedTopology: true, useCreateIndex: true})

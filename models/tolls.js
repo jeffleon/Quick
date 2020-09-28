@@ -8,7 +8,6 @@ const TollSchema = new Schema({
     direction: { type: String, default: "" },
     toll_cost: mongoose.SchemaTypes.Mixed,
     date_modification: { type: Date, default: Date.now },
-    state: { type: String, default: "" },
     department: { type: String, default: "" },
     id: Number
 });
