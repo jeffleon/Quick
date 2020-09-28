@@ -30,7 +30,7 @@ exports.get_toll_id = async (req, res) => {
     try{
         var toll = await Toll.find_toll_id(req.params.id)
         if(!toll) { 
-            res.status(404).send(`we can find the toll with id ${req.params.id}`);
+            res.status(404).send(`we can't find the toll with id ${req.params.id}`);
         } else{
             res.status(200).send(toll);
         }

@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const TollSchema = new Schema({
-    name: String,
+    name: Number,
     coordenates: {lat: Number, lng: Number},
     operator: String,
     direction: { type: String, default: "" },
