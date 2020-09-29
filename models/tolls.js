@@ -2,10 +2,10 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const TollSchema = new Schema({
-    name: Number,
+    name: String,
     coordenates: {lat: Number, lng: Number},
     operator: String,
-    direction: { type: String, default: "" },
+    direction: { type: Number, default: "" },
     toll_cost: mongoose.SchemaTypes.Mixed,
     date_modification: { type: Date, default: Date.now },
     department: { type: String, default: "" },
